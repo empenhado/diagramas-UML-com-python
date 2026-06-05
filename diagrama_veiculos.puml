@@ -1,0 +1,21 @@
+@startuml
+
+title Diagrama gerado a partir de código Python
+
+class Veiculo {
+    - marca
+
+    + __init__()
+    + ligar()
+}
+
+class Carro {
+    - portas
+
+    + __init__()
+    + abrir_mala()
+}
+
+Veiculo <|-- Carro
+
+@enduml
