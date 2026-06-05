@@ -1,4 +1,4 @@
-repositorio criado para auxiliar meus estudos de poo, sendo composto pelo arquivo conversor.py que gera um arquivo .puml a partir do codigo python
+repositorio criado para auxiliar os estudos de poo do grupo de colaboradores (Ester Martins, Rafael Carvalho, Bruno Vital, Sérgio Guthyerres). este repositório é composto pelo arquivo conversor.py que gera um arquivo .puml a partir do codigo python
 
 # fluxo de uso do conversor.py:
 - para cada diagrama deve-se colar o codigo python dentro da variavel meu_codigo_python usando """ """
