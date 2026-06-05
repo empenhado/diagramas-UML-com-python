@@ -1,6 +1,16 @@
 repositorio criado para auxiliar meus estudos de poo, sendo composto pelo arquivo conversor.py que gera um arquivo .puml a partir do codigo python
 
-sobre o compartilhamento e sincronização de codigo, os seguintes comandos git foram utilizados:
+# fluxo de uso do conversor.py:
+- para cada diagrama deve-se colar o codigo python dentro da variavel meu_codigo_python usando """ """
+- mudar o nome do arquivo/diagrama na funçao gerar_arquivo_puml("nome_diagrama", meu_codigo_python)
+- rodar o script no terminal
+
+# dicas extras de configuraçao de ambiente:
+- a extensao do PlantUML deve ser instalada para renderizar os diagramas
+- o atalho alt + D abre uma aba com o diagrama gerado
+- se o diagrama nao aparecer: abra as configuracoes do VS code (ctrl + ,) > digite plantuml render > mude a config de local para plantUMLServer > copie e cole a url do servidor oficial do PlantUML Server
+
+# sobre o compartilhamento e sincronização de codigo, os seguintes comandos git foram utilizados:
 
 git init
 - inicia o novo projeto com git
