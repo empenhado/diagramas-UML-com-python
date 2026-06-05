@@ -33,7 +33,7 @@ git diff
 git merge
 - usado para mesclar diferentes ramificaçoes
 
-git branch | git checkout branch -b <nome-da-branch>
+git branch | git checkout -b <nome-da-branch>
 - mostra a branch atual | cria uma nova branch versionada a partir da branch atual
 
 git checkout <nome-branch>
