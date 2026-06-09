@@ -1,0 +1,53 @@
+@startuml diagrama-ifma
+
+title Diagrama gerado a partir de código Python
+
+class Autenticavel {
+    + login()
+}
+
+class Funcionario {
+    - nome
+
+    + __init__()
+    + trabalhar()
+    + bater_ponto()
+}
+
+class Professor {
+    - disciplina
+    - nome
+
+    + __init__()
+    + login()
+    + trabalhar()
+}
+
+class Coordenador {
+    - curso
+    - nome
+
+    + __init__()
+    + login()
+    + trabalhar()
+}
+
+class Tecnico {
+    - nome
+    - setor
+
+    + __init__()
+    + login()
+    + trabalhar()
+}
+
+ABC <|-- Autenticavel
+ABC <|-- Funcionario
+Autenticavel <|-- Professor
+Funcionario <|-- Professor
+Autenticavel <|-- Coordenador
+Funcionario <|-- Coordenador
+Autenticavel <|-- Tecnico
+Funcionario <|-- Tecnico
+
+@enduml
