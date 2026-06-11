@@ -1,9 +1,9 @@
 import ast
 
 def python_para_plantuml(codigo_python):
-    '''
-    Converte um código Python simples, contendo classes, em código PlantUML.
-    '''
+    """
+    Converte código Python em código PlantUML.
+    """
     arvore = ast.parse(codigo_python)
 
     classes = []
@@ -15,10 +15,12 @@ def python_para_plantuml(codigo_python):
             atributos = set()
             metodos = []
 
+            # Verifica herança
             for base in no.bases:
                 if isinstance(base, ast.Name):
                     herancas.append((base.id, nome_classe))
 
+            # Procura métodos e atributos
             for item in no.body:
                 if isinstance(item, ast.FunctionDef):
                     metodos.append(item.name)
@@ -40,20 +42,26 @@ def python_para_plantuml(codigo_python):
     linhas = []
     linhas.append("@startuml")
     linhas.append("")
-    linhas.append("title Diagrama gerado a partir de código Python")
+    linhas.append("title Diagrama UML de Animais")
     linhas.append("")
 
+    # Cria as classes
     for classe in classes:
         linhas.append(f"class {classe['nome']} {{")
+
         for atributo in classe["atributos"]:
             linhas.append(f"    - {atributo}")
+
         if classe["atributos"] and classe["metodos"]:
             linhas.append("")
+
         for metodo in classe["metodos"]:
             linhas.append(f"    + {metodo}()")
+
         linhas.append("}")
         linhas.append("")
 
+    # Cria heranças
     for classe_pai, classe_filha in herancas:
         linhas.append(f"{classe_pai} <|-- {classe_filha}")
 
@@ -62,42 +70,46 @@ def python_para_plantuml(codigo_python):
 
     return "\n".join(linhas)
 
+
 def gerar_arquivo_puml(nome_arquivo, codigo_python):
-    '''
-    Gera um arquivo .puml a partir de código Python para ser lido no VS Code.
-    '''
+    """
+    Gera um arquivo .puml
+    """
     codigo_uml = python_para_plantuml(codigo_python)
 
     print("=== Código PlantUML gerado ===")
     print(codigo_uml)
 
-    # Cria e salva o arquivo com a extensão .puml
     nome_completo = f"{nome_arquivo}.puml"
+
     with open(nome_completo, "w", encoding="utf-8") as arquivo:
         arquivo.write(codigo_uml)
-    
-    print(f"\n Arquivo '{nome_completo}' salvo com sucesso!")
+
+    print(f"\nArquivo '{nome_completo}' salvo com sucesso!")
+
 
 # ==========================================
-# TESTANDO O CÓDIGO
+# EXEMPLO DE CLASSES
 # ==========================================
 
 meu_codigo_python = """
-class Veiculo:
-    def __init__(self, marca):
-        self.marca = marca
-        
-    def ligar(self):
+class Animal:
+    def __init__(self, nome):
+        self.nome = nome
+
+    def emitir_som(self):
         pass
 
-class Carro(Veiculo):
-    def __init__(self, marca, portas):
-        super().__init__(marca)
-        self.portas = portas
-        
-    def abrir_mala(self):
-        pass
+
+class Cachorro(Animal):
+    def __init__(self, nome, raca):
+        super().__init__(nome)
+        self.raca = raca
+
+    def latir(self):
+        print("Au au")
 """
 
-# Executa a função passando o nome do arquivo que queremos gerar e o código
-gerar_arquivo_puml("diagrama_veiculos", meu_codigo_python)
+
+# Gera o arquivo UML
+gerar_arquivo_puml("diagrama_animais", meu_codigo_python)

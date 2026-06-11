@@ -1,0 +1,21 @@
+@startuml
+
+title Diagrama UML de Animais
+
+class Animal {
+    - nome
+
+    + __init__()
+    + emitir_som()
+}
+
+class Cachorro {
+    - raca
+
+    + __init__()
+    + latir()
+}
+
+Animal <|-- Cachorro
+
+@enduml
