@@ -83,20 +83,21 @@ def gerar_arquivo_puml(nome_arquivo, codigo_python):
 # ==========================================
 
 meu_codigo_python = """
-class Veiculo:
-    def __init__(self, marca):
-        self.marca = marca
-        
-    def ligar(self):
-        pass
+class Animal:
+  def emitir_som(self):
+    print("*Animal fazendo som*")
 
-class Carro(Veiculo):
-    def __init__(self, marca, portas):
-        super().__init__(marca)
-        self.portas = portas
-        
-    def abrir_mala(self):
-        pass
+class Cachorro(Animal):
+   def emitir_som(self):
+        print("O cachorro uiva: auuuuuauuuuu!")
+
+class Gato(Animal):
+   def emitir_som(self):
+        print("O gato mia: miau!")
+
+class Vaca(Animal):
+   def emitir_som(self):
+        print("O vaca faz mu: muuuuuuuu!")
 """
 
 # Executa a função passando o nome do arquivo que queremos gerar e o código

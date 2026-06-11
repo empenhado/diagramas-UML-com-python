@@ -1,0 +1,28 @@
+=== C�digo PlantUML gerado ===
+@startuml
+
+title Diagrama gerado a partir de c�digo Python
+
+class Animal {
+    + emitir_som()
+}
+
+class Cachorro {
+    + emitir_som()
+}
+
+class Gato {
+    + emitir_som()
+}
+
+class Vaca {
+    + emitir_som()
+}
+
+Animal <|-- Cachorro
+Animal <|-- Gato
+Animal <|-- Vaca
+
+@enduml
+
+ Arquivo 'diagrama_veiculos.puml' salvo com sucesso!
