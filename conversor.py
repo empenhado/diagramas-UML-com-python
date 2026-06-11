@@ -4,7 +4,7 @@ def python_para_plantuml(codigo_python):
     '''
     Converte um código Python simples, contendo classes, em código PlantUML.
     '''
-    arvore = ast.parse(codigo_python)
+    arvore = ast.parse(codigo_python, type_comments=False)
 
     classes = []
     herancas = []
@@ -83,21 +83,15 @@ def gerar_arquivo_puml(nome_arquivo, codigo_python):
 # ==========================================
 
 meu_codigo_python = """
-class Animal:
-  def emitir_som(self):
-    print("*Animal fazendo som*")
+def __init__(self, nome, matricula, curso):
+    self.nome = nome
+    self.matricula = matricula
+    self.curso = curso
 
-class Cachorro(Animal):
-   def emitir_som(self):
-        print("O cachorro uiva: auuuuuauuuuu!")
-
-class Gato(Animal):
-   def emitir_som(self):
-        print("O gato mia: miau!")
-
-class Vaca(Animal):
-   def emitir_som(self):
-        print("O vaca faz mu: muuuuuuuu!")
+def mostrar_informacoes(self):
+    print(f"Aluno: {self.nome}")
+    print(f"Matrícula: {self.matricula}")
+    print(f"Curso: {self.curso}")
 """
 
 # Executa a função passando o nome do arquivo que queremos gerar e o código
